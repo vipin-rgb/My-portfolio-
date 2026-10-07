@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vipin Dadhich | Full Stack Developer & Cybersecurity Enthusiast</title>
+  
+  <!-- Google Fonts: Syne, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              50: '#ecfeff',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              neon: '#00f2fe',
+              emerald: '#10b981',
+              violet: '#8b5cf6',
+              dark: '#030712',
+              card: '#0b1120'
+            }
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 3s infinite ease-in-out',
+            'matrix-scan': 'matrixScan 3s linear infinite',
+          },
+          keyframes: {
+            glowPulse: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+            },
+            matrixScan: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom High-Tech Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030712;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
+    }
+
+    /* Cyber scanlines and grid overlay */
+    .cyber-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    
+    .glass-card {
+      background: rgba(11, 17, 32, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(6, 182, 212, 0.35);
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15);
+    }
+
+    .terminal-window {
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(6, 182, 212, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-cyber-dark text-slate-100 font-body antialiased selection:bg-cyber-500 selection:text-black min-h-screen relative overflow-x-hidden">
+
+  <!-- Dynamic Matrix / Grid background layer -->
+  <div class="fixed inset-0 cyber-grid pointer-events-none z-0"></div>
+  <div class="fixed -top-40 -left-40 w-96 h-96 bg-cyan-600/15 rounded-full blur-[130px] animate-glow-pulse pointer-events-none z-0"></div>
+  <div class="fixed top-1/2 -right-40 w-96 h-96 bg-indigo-600/15 rounded-full blur-[130px] animate-glow-pulse pointer-events-none z-0"></div>
+
+  <!-- Top Sticky Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-cyber-dark/80 backdrop-blur-xl border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Cyber Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-emerald-400 p-[1.5px] transition-transform duration-300 group-hover:rotate-6">
+          <div class="w-full h-full bg-cyber-dark rounded-[10px] flex items-center justify-center font-mono font-bold text-cyber-neon text-sm">
+            VD
+          </div>
+        </div>
+        <div>
+          <span class="font-sans font-extrabold text-base tracking-tight text-white flex items-center gap-1.5">
+            Vipin Dadhich
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          </span>
+          <span class="block text-[10px] font-mono text-slate-400 -mt-1 tracking-wider uppercase">BCA Final Year • Jaipur</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-medium uppercase tracking-wider text-slate-300">
+        <a href="#about" class="hover:text-cyber-neon transition-colors">Profile</a>
+        <a href="#skills" class="hover:text-cyber-neon transition-colors">Tech Arsenal</a>
+        <a href="#scanner" class="hover:text-cyber-neon transition-colors flex items-center gap-1.5">
+          <span>Security Scanner</span>
+          <span class="px-1.5 py-0.2 bg-cyan-500/20 text-cyan-300 text-[9px] rounded font-mono border border-cyan-500/40">Lab</span>
+        </a>
+        <a href="#projects" class="hover:text-cyber-neon transition-colors">Projects</a>
+        <a href="#crypto-lab" class="hover:text-cyber-neon transition-colors">Crypto Lab</a>
+        <a href="#contact" class="hover:text-cyber-neon transition-colors">Contact</a>
+      </nav>
+
+      <!-- Fast Actions & Socials -->
+      <div class="flex items-center gap-2.5">
+        <a href="https://wa.me/919509725051?text=Hi%20Vipin,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-semibold transition-all">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>WhatsApp</span>
+        </a>
+
+        <a href="#contact" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-black font-sans font-bold text-xs tracking-wide shadow-lg shadow-cyan-500/20 transition-all">
+          Hire Me
+        </a>
+
+        <button id="mobileMenuBtn" class="md:hidden w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300">
+          <i class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-cyber-dark/95 backdrop-blur-2xl px-6 py-4 space-y-3 font-mono text-xs uppercase tracking-wider">
+      <a href="#about" class="mob-link block text-slate-300 hover:text-cyan-400 py-1.5">Profile & College</a>
+      <a href="#skills" class="mob-link block text-slate-300 hover:text-cyan-400 py-1.5">Tech Arsenal (Full Stack & Cyber)</a>
+      <a href="#scanner" class="mob-link block text-cyan-400 hover:text-white py-1.5">Live Security Scanner</a>
+      <a href="#projects" class="mob-link block text-slate-300 hover:text-cyan-400 py-1.5">Projects</a>
+      <a href="#crypto-lab" class="mob-link block text-slate-300 hover:text-cyan-400 py-1.5">Crypto & Hashing Demo</a>
+      <a href="#contact" class="mob-link block text-slate-300 hover:text-cyan-400 py-1.5">Contact (Vipin Dadhich)</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-20">
+    <section id="hero" class="min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-5xl mx-auto text-center">
+        
+        <!-- Live Academic Status Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs text-slate-300 mb-8 shadow-inner shadow-cyan-500/10">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-mono text-cyan-400 font-semibold">Parishkar College of Global Excellence, Jaipur</span>
+          <span class="text-slate-500">•</span>
+          <span class="text-slate-300 font-mono text-[11px]">BCA 3rd Year</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-sans font-black tracking-tight text-white mb-6 leading-tight">
+          Hello, I'm <br class="sm:hidden" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon via-indigo-300 to-emerald-400">
+            Vipin Dadhich
+          </span>
+        </h1>
+
+        <!-- Typewriter Subheadline -->
+        <div class="text-lg sm:text-2xl font-mono text-slate-300 mb-6 flex items-center justify-center gap-2 h-10">
+          <span class="text-slate-500">&gt;</span>
+          <span id="typewriter" class="text-cyan-400 font-bold border-r-2 border-cyan-400 pr-1"></span>
+        </div>
+
+        <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed font-body">
+          Specializing in developing responsive web platforms with <span class="text-slate-200 font-semibold">HTML, CSS, JS, Node.js & Express.js</span>, backed with a deep curiosity for <span class="text-cyan-300 font-semibold">Cybersecurity, Network Security, Python, and Linux</span> systems administration.
+        </p>
+
+        <!-- Direct Action Bar -->
+        <div class="flex flex-wrap items-center justify-center gap-3.5 max-w-2xl mx-auto">
+          <a href="https://wa.me/919509725051?text=Hello%20Vipin,%20we%20want%20to%20discuss%20a%20project/opportunity!" target="_blank" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-black font-sans font-bold text-xs tracking-wider uppercase transition-all shadow-lg shadow-cyan-500/25 hover:-translate-y-0.5 flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Chat on WhatsApp</span>
+          </a>
+
+          <a href="tel:9509725051" class="px-5 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-slate-200 text-xs font-mono font-semibold transition-all hover:-translate-y-0.5 flex items-center gap-2">
+            <i class="fa-solid fa-phone text-emerald-400"></i>
+            <span>+91 9509725051</span>
+          </a>
+
+          <a href="mailto:vipindadhich0@gmail.com" class="px-5 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-slate-200 text-xs font-mono font-semibold transition-all hover:-translate-y-0.5 flex items-center gap-2">
+            <i class="fa-regular fa-envelope text-cyan-400"></i>
+            <span>vipindadhich0@gmail.com</span>
+          </a>
+
+          <button onclick="downloadVipinResume()" class="px-5 py-3 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/40 text-cyan-300 text-xs font-mono font-semibold transition-all flex items-center gap-2">
+            <i class="fa-solid fa-file-code"></i>
+            <span>Download CV</span>
+          </button>
+        </div>
+
+        <!-- Quick Summary Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto pt-8 border-t border-slate-800/80 text-left">
+          <div class="p-4 rounded-xl glass-card">
+            <div class="text-xs font-mono text-cyan-400 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-graduation-cap"></i> Degree
+            </div>
+            <div class="text-sm font-bold text-white">BCA Final Year</div>
+            <div class="text-[11px] text-slate-400 truncate">Parishkar College</div>
+          </div>
+
+          <div class="p-4 rounded-xl glass-card">
+            <div class="text-xs font-mono text-indigo-400 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-shield-halved"></i> Focus
+            </div>
+            <div class="text-sm font-bold text-white">Cyber & Web</div>
+            <div class="text-[11px] text-slate-400">Secure Architecture</div>
+          </div>
+
+          <div class="p-4 rounded-xl glass-card">
+            <div class="text-xs font-mono text-emerald-400 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-terminal"></i> Systems
+            </div>
+            <div class="text-sm font-bold text-white">Linux & Shell</div>
+            <div class="text-[11px] text-slate-400">Command-line & Scripts</div>
+          </div>
+
+          <div class="p-4 rounded-xl glass-card">
+            <div class="text-xs font-mono text-amber-400 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-map-pin"></i> Location
+            </div>
+            <div class="text-sm font-bold text-white">Jaipur, RJ</div>
+            <div class="text-[11px] text-slate-400">Rajasthan, India</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold bg-cyan-950/60 border border-cyan-500/20 px-3 py-1 rounded-full">Academic & Technical Profile</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Driven By Code, Secured By Protocol</h2>
+          <p class="text-slate-400 text-sm mt-3">
+            I am a third-year Bachelor of Computer Applications (BCA) candidate at <strong>Parishkar College of Global Excellence, Jaipur</strong>. Combining frontend development, server-side Node.js scripting, and fundamental cybersecurity principles.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Identity Card -->
+          <div class="lg:col-span-5 glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 via-indigo-600 to-purple-600 p-0.5">
+                <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-cyan-300 text-2xl font-black font-mono">
+                  VD
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Vipin Dadhich</h3>
+                <p class="text-xs font-mono text-cyan-400">BCA 3rd Year Student</p>
+                <p class="text-xs text-slate-400">Parishkar College of Global Excellence</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono space-y-2">
+              <div class="flex justify-between py-1 border-b border-slate-800/60">
+                <span class="text-slate-500">Degree Status:</span>
+                <span class="text-emerald-400 font-bold">BCA (3rd Year - Final)</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-800/60">
+                <span class="text-slate-500">College:</span>
+                <span class="text-slate-300">Parishkar College, Jaipur</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-800/60">
+                <span class="text-slate-500">Contact:</span>
+                <span class="text-cyan-400 font-semibold">+91 9509725051</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-slate-500">Email:</span>
+                <span class="text-slate-300 select-all">vipindadhich0@gmail.com</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed font-body">
+              My coursework and self-learning cover full-stack web engineering, algorithms, networking layers, and defensive computing. I enjoy inspecting headers, writing clean JavaScript/Node architectures, and building modular utilities.
+            </p>
+
+            <div class="flex items-center gap-3 pt-2">
+              <a href="https://www.linkedin.com/in/vipin-dadhich" target="_blank" class="flex-1 py-2.5 rounded-xl bg-[#0a66c2]/15 hover:bg-[#0a66c2]/25 border border-[#0a66c2]/40 text-[#70b5f9] text-xs font-semibold text-center transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+              </a>
+              <button onclick="copyToClipboard('vipindadhich0@gmail.com', 'Email copied to clipboard!')" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono transition-colors" title="Copy Email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Skills Catalog Section -->
+          <div id="skills" class="lg:col-span-7 space-y-6">
+            <div class="glass-card rounded-2xl p-6 sm:p-8">
+              <h3 class="text-base font-bold text-white mb-6 flex items-center gap-2.5">
+                <i class="fa-solid fa-layer-group text-cyan-400"></i>
+                Technical Arsenal & Domains
+              </h3>
+
+              <div class="space-y-6">
+                <!-- Group 1: Frontend & Core -->
+                <div>
+                  <div class="flex items-center justify-between text-xs font-mono mb-2">
+                    <span class="text-cyan-400 font-bold flex items-center gap-2">
+                      <i class="fa-brands fa-html5 text-orange-400"></i> Frontend Core
+                    </span>
+                    <span class="text-slate-400 text-[11px]">HTML5, CSS3, Modern JavaScript</span>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">HTML5 Semantic</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">CSS3 & Responsive Design</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">JavaScript (ES6+)</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">DOM Manipulation & Async/Await</span>
+                  </div>
+                </div>
+
+                <!-- Group 2: Backend & APIs -->
+                <div class="pt-4 border-t border-slate-800">
+                  <div class="flex items-center justify-between text-xs font-mono mb-2">
+                    <span class="text-indigo-400 font-bold flex items-center gap-2">
+                      <i class="fa-brands fa-node-js text-emerald-400"></i> Backend & Servers
+                    </span>
+                    <span class="text-slate-400 text-[11px]">Node.js, Express.js, PHP Basics</span>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">Node.js Runtime</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">Express.js Framework</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">RESTful API Design</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">PHP (Fundamentals)</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">JSON & Local Storage</span>
+                  </div>
+                </div>
+
+                <!-- Group 3: Cybersecurity & Networks -->
+                <div class="pt-4 border-t border-slate-800">
+                  <div class="flex items-center justify-between text-xs font-mono mb-2">
+                    <span class="text-emerald-400 font-bold flex items-center gap-2">
+                      <i class="fa-solid fa-shield-virus text-cyan-400"></i> Cybersecurity & Infrastructure
+                    </span>
+                    <span class="text-slate-400 text-[11px]">Linux, Cyber Security, Network Security</span>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-lg bg-cyan-950/40 border border-cyan-500/40 text-xs text-cyan-300 font-mono">Linux Basics & CLI</span>
+                    <span class="px-3 py-1 rounded-lg bg-cyan-950/40 border border-cyan-500/40 text-xs text-cyan-300 font-mono">Cyber Security Principles</span>
+                    <span class="px-3 py-1 rounded-lg bg-cyan-950/40 border border-cyan-500/40 text-xs text-cyan-300 font-mono">Network Security & Protocols</span>
+                    <span class="px-3 py-1 rounded-lg bg-cyan-950/40 border border-cyan-500/40 text-xs text-cyan-300 font-mono">OWASP Top 10 Awareness</span>
+                    <span class="px-3 py-1 rounded-lg bg-cyan-950/40 border border-cyan-500/40 text-xs text-cyan-300 font-mono">TCP/IP, DNS, SSL/TLS</span>
+                  </div>
+                </div>
+
+                <!-- Group 4: Foundations & Problem Solving -->
+                <div class="pt-4 border-t border-slate-800">
+                  <div class="flex items-center justify-between text-xs font-mono mb-2">
+                    <span class="text-amber-400 font-bold flex items-center gap-2">
+                      <i class="fa-brands fa-python text-amber-400"></i> Foundations & Algorithms
+                    </span>
+                    <span class="text-slate-400 text-[11px]">Python, DSA</span>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">Python Scripting</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">Data Structures & Algorithms (DSA)</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">Arrays, Stacks, Queues, Sorting</span>
+                    <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">Git & GitHub</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="scanner" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-950/60">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs mb-3">
+            <i class="fa-solid fa-terminal"></i> Interactive Cyber Project
+          </div>
+          <h2 class="text-3xl font-extrabold text-white">Live Web Security & Header Auditor</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2">
+            A real simulation engineered by Vipin demonstrating penetration audit sequences, header policies (CSP, X-Frame, HSTS), and port handshakes.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 sm:p-8 terminal-window border border-cyan-500/30">
+          <!-- Terminal Titlebar -->
+          <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+              <span class="ml-2 font-mono text-xs text-slate-400">vipin-scanner@parishkar-box:~/audits</span>
+            </div>
+            <span class="text-[11px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-800">
+              CYBER_AUDIT_V2.4
+            </span>
+          </div>
+
+          <!-- Scanner controls -->
+          <div class="flex flex-col sm:flex-row gap-3 mb-6">
+            <div class="relative flex-1">
+              <span class="absolute inset-y-0 left-3 flex items-center text-slate-500 font-mono text-xs">target://</span>
+              <input id="scanTargetInput" type="text" value="example-secure-bank.org" placeholder="Enter hostname or domain..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-20 pr-4 py-2.5 text-xs font-mono text-cyan-300 placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition-colors" />
+            </div>
+            <button id="startScanBtn" onclick="runSecurityScan()" class="px-6 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold text-xs tracking-wider uppercase transition-all shadow-md shadow-cyan-500/20 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-radar"></i>
+              <span>Initiate Scan</span>
+            </button>
+          </div>
+
+          <!-- Live Progress Bar -->
+          <div id="scanProgressContainer" class="hidden mb-6">
+            <div class="flex justify-between text-xs font-mono text-slate-400 mb-1.5">
+              <span id="scanStatusText">Injecting audit probes...</span>
+              <span id="scanPercentText" class="text-cyan-400">0%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-900 overflow-hidden border border-slate-800">
+              <div id="scanProgressBar" class="h-full bg-gradient-to-r from-cyan-500 to-emerald-400 transition-all duration-300" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Terminal Output Log -->
+          <div id="scannerConsole" class="bg-black/80 rounded-xl p-4 font-mono text-xs space-y-2 h-64 overflow-y-auto border border-slate-900 text-slate-300">
+            <div class="text-slate-500">[SYSTEM] Vipin Dadhich Cybersecurity Toolkit initialized.</div>
+            <div class="text-slate-500">[INFO] Ready for target verification. Click 'Initiate Scan' above.</div>
+          </div>
+
+          <!-- Scan Results Summary Cards -->
+          <div id="scanResultsSummary" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-slate-800">
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">SSL/TLS Grade</span>
+              <p id="resSsl" class="text-lg font-bold text-emerald-400 font-mono mt-1">A+ Valid</p>
+            </div>
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">Security Score</span>
+              <p id="resScore" class="text-lg font-bold text-cyan-400 font-mono mt-1">94 / 100</p>
+            </div>
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">Open Ports</span>
+              <p id="resPorts" class="text-lg font-bold text-slate-200 font-mono mt-1">80, 443</p>
+            </div>
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">XSS Mitigation</span>
+              <p id="resXss" class="text-lg font-bold text-emerald-400 font-mono mt-1">Protected</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold bg-cyan-950/60 border border-cyan-500/20 px-3 py-1 rounded-full">Portfolio Work</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Featured Technical Projects</h2>
+            <p class="text-slate-400 text-sm mt-2">Projects combining Node.js backend logic, Python scripting, and secure architectures.</p>
+          </div>
+
+          <!-- Project Filter Tabs -->
+          <div class="flex flex-wrap gap-2 p-1 bg-slate-900 border border-slate-800 rounded-xl">
+            <button onclick="filterVipinProjects('all')" class="proj-tab active px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-cyan-500 text-black transition-all">All</button>
+            <button onclick="filterVipinProjects('fullstack')" class="proj-tab px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold text-slate-400 hover:text-white transition-all">Node & Web</button>
+            <button onclick="filterVipinProjects('security')" class="proj-tab px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold text-slate-400 hover:text-white transition-all">Security & Linux</button>
+            <button onclick="filterVipinProjects('python')" class="proj-tab px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold text-slate-400 hover:text-white transition-all">Python & DSA</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Project Card 1: Node.js / Express Security API -->
+          <div class="vipin-proj glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="fullstack">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                  <i class="fa-brands fa-node-js"></i>
+                </span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Full Stack</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">SecureAuth: Node & Express Auth REST API</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                A robust user authentication back-end featuring JWT authorization, Argon2/Bcrypt hash verification, request rate-limiting, and sanitized input validation.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">Node.js</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">Express.js</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">JavaScript</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">REST API</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+              <a href="https://github.com" target="_blank" class="flex-1 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-mono text-center text-slate-300 transition-colors">
+                <i class="fa-brands fa-github mr-1"></i> Repository
+              </a>
+              <button onclick="copyToClipboard('https://github.com', 'GitHub repo link copied to clipboard!')" class="px-3 py-2 rounded-lg bg-cyan-950 border border-cyan-800 text-cyan-300 text-xs">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project Card 2: Cyber / Linux Port Scanner Script -->
+          <div class="vipin-proj glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="security">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg">
+                  <i class="fa-solid fa-network-wired"></i>
+                </span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">Cyber Security</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">NetProbe: Python Port & Banner Scanner</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Socket-based multithreaded network security utility written in Python for testing open daemon ports, detecting SSH/HTTP version leaks, and generating audit reports.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">Python 3</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">Sockets</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">Linux CLI</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">Network Sec</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+              <a href="#scanner" class="flex-1 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono text-center transition-colors">
+                <i class="fa-solid fa-play mr-1"></i> Interactive Demo
+              </a>
+            </div>
+          </div>
+
+          <!-- Project Card 3: Parishkar Student Portal / PHP -->
+          <div class="vipin-proj glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="fullstack">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-lg">
+                  <i class="fa-brands fa-php"></i>
+                </span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40">PHP & DB</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">College Academic Records Portal</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Web dashboard created with PHP, HTML5, and CSS for tracking student grades, semester syllabus attendance, and exam notifications with role checks.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">PHP Basic</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">HTML5</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">CSS3</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">SQL Basics</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+              <a href="https://github.com" target="_blank" class="flex-1 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-mono text-center text-slate-300 transition-colors">
+                <i class="fa-brands fa-github mr-1"></i> Repository
+              </a>
+            </div>
+          </div>
+
+          <!-- Project Card 4: DSA Visualizer in JS -->
+          <div class="vipin-proj glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="python">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
+                  <i class="fa-solid fa-code-branch"></i>
+                </span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">DSA & Logic</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Algorithm & Sorting Simulator</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Step-by-step visualizer for Bubble Sort, Binary Search, and Stack pointer movements to grasp time and space complexity in practice.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">DSA</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">JavaScript</span>
+                <span class="text-[10px] font-mono bg-slate-900 px-2 py-1 rounded text-slate-300 border border-slate-800">Python Logic</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+              <a href="#crypto-lab" class="flex-1 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono text-center transition-colors">
+                <i class="fa-solid fa-flask mr-1"></i> Test Crypto Lab
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="crypto-lab" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-950/40">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-3">
+            <i class="fa-solid fa-lock"></i> Security Cryptography Lab
+          </div>
+          <h2 class="text-3xl font-extrabold text-white">Live SHA-256 & Encryption Sandbox</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2">
+            Try real-time hashing using the browser's native SubtleCrypto engine. Demonstrates how passwords and network signatures are securely stored.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5 border border-emerald-500/30">
+          <div>
+            <label for="hashInput" class="block text-xs font-mono text-slate-300 mb-2">Plaintext String or Secret Key:</label>
+            <input id="hashInput" type="text" value="Vipin Dadhich - CyberSecurity 2026" oninput="calculateRealHash()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs font-mono text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition-colors" />
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-900 space-y-2">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+              <span>Computed SHA-256 Digest:</span>
+              <button onclick="copyHashResult()" class="text-cyan-400 hover:text-cyan-300 text-[11px] flex items-center gap-1">
+                <i class="fa-regular fa-copy"></i> Copy Hash
+              </button>
+            </div>
+            <div id="hashOutput" class="font-mono text-xs text-cyan-300 break-all select-all font-semibold bg-black/60 p-3 rounded-lg border border-slate-800">
+              Calculating...
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono text-slate-400 pt-2">
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-500 block text-[10px]">Algorithm</span>
+              <span class="text-white font-bold">SHA-256 (NIST)</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-500 block text-[10px]">Output Length</span>
+              <span class="text-emerald-400 font-bold">256 Bits (64 Hex)</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-500 block text-[10px]">Collision Resistance</span>
+              <span class="text-cyan-400 font-bold">Cryptographically High</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold bg-cyan-950/60 border border-cyan-500/20 px-3 py-1 rounded-full">Get In Touch</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Let's Connect & Collaborate</h2>
+          <p class="text-slate-400 text-sm mt-2">
+            Have an internship, project, or role for a dedicated BCA graduate? Reach out directly via WhatsApp, phone, or email.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Direct Quick-Contact Cards -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <!-- WhatsApp Priority Box -->
+            <a href="https://wa.me/919509725051?text=Hi%20Vipin,%20I%20am%20reaching%20out%20from%20your%20Portfolio!" target="_blank" class="block p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/40 hover:border-emerald-400 transition-all group">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">Instant WhatsApp Chat</h4>
+                    <p class="text-xs font-mono text-emerald-400">+91 9509725051</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-emerald-400 transition-colors"></i>
+              </div>
+            </a>
+
+            <!-- Phone Call Card -->
+            <div class="p-5 rounded-2xl glass-card flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-slate-800 text-cyan-400 flex items-center justify-center text-lg">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Phone Call</h4>
+                  <a href="tel:9509725051" class="text-xs font-mono text-slate-300 hover:text-cyan-400">9509725051</a>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('9509725051', 'Phone number copied to clipboard!')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono" title="Copy Number">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Email Card -->
+            <div class="p-5 rounded-2xl glass-card flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-slate-800 text-indigo-400 flex items-center justify-center text-lg">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Direct Email</h4>
+                  <a href="mailto:vipindadhich0@gmail.com" class="text-xs font-mono text-slate-300 hover:text-indigo-400 select-all">vipindadhich0@gmail.com</a>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('vipindadhich0@gmail.com', 'Email copied to clipboard!')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono" title="Copy Email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <a href="https://www.linkedin.com/in/vipin-dadhich" target="_blank" class="block p-5 rounded-2xl glass-card hover:border-[#0a66c2]/50 transition-all group">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-11 h-11 rounded-xl bg-[#0a66c2]/20 text-[#0a66c2] flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">LinkedIn Connection</h4>
+                    <p class="text-xs font-mono text-slate-400">Vipin Dadhich</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+              </div>
+            </a>
+
+            <!-- College info badge -->
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-900 text-xs text-slate-400 font-mono flex items-center gap-2">
+              <i class="fa-solid fa-building-columns text-slate-500"></i>
+              <span>Parishkar College of Global Excellence, Jaipur</span>
+            </div>
+
+          </div>
+
+          <!-- Interactive Message Box with Mailto Fallback -->
+          <div class="lg:col-span-7">
+            <form id="vipinContactForm" onsubmit="handleContactSubmit(event)" class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+              <h3 class="text-lg font-bold text-white mb-2">Send Vipin a Direct Note</h3>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 mb-1">Your Name *</label>
+                  <input type="text" id="senderName" required placeholder="Recruiter / Collaborator" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition-colors" />
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 mb-1">Your Email / Phone *</label>
+                  <input type="text" id="senderContact" required placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition-colors" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-300 mb-1">Subject</label>
+                <input type="text" id="msgSubject" placeholder="Job Offer / Project Collaboration" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition-colors" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-300 mb-1">Message *</label>
+                <textarea id="msgBody" rows="4" required placeholder="Hi Vipin, I reviewed your profile and projects..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-black font-sans font-bold text-xs tracking-wider uppercase transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span>Send Message</span>
+                </button>
+                <a href="mailto:vipindadhich0@gmail.com" class="py-3 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 text-xs font-mono text-center flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-envelope-open-text"></i> Open Default Mail
+                </a>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800/80 py-8 px-4 text-center font-mono text-xs text-slate-500 bg-black/60 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 <span class="text-slate-300 font-bold">Vipin Dadhich</span> • BCA Student @ Parishkar College, Jaipur
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="https://wa.me/919509725051" target="_blank" class="hover:text-emerald-400 transition-colors" title="WhatsApp"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+        <a href="https://www.linkedin.com/in/vipin-dadhich" target="_blank" class="hover:text-cyan-400 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin text-sm"></i></a>
+        <a href="mailto:vipindadhich0@gmail.com" class="hover:text-indigo-400 transition-colors" title="Email"><i class="fa-solid fa-envelope text-sm"></i></a>
+        <a href="tel:9509725051" class="hover:text-amber-400 transition-colors" title="Call"><i class="fa-solid fa-phone text-sm"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Box -->
+  <div id="toastBox" class="fixed bottom-6 right-6 z-50 transform translate-y-28 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-slate-900/95 border border-cyan-400 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-xl">
+      <i id="toastIcon" class="fa-solid fa-circle-check text-cyan-400 text-base"></i>
+      <div>
+        <p id="toastTitle" class="text-xs font-bold font-sans text-white">Notice</p>
+        <p id="toastMsg" class="text-[11px] font-mono text-slate-300">Message content here.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mob-link').forEach(l => {
+      l.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // 2. Typewriter Effect
+    const typewriterElement = document.getElementById('typewriter');
+    const titles = [
+      "BCA Final Year Student",
+      "Full Stack Web Developer (Node/Express)",
+      "Cybersecurity & Network Security Learner",
+      "Linux & Python Enthusiast"
+    ];
+    let tIndex = 0, charIdx = 0, isDeleting = false, speed = 80;
+
+    function handleTyping() {
+      const current = titles[tIndex];
+      if (isDeleting) {
+        typewriterElement.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
+        speed = 40;
+      } else {
+        typewriterElement.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
+        speed = 90;
+      }
+
+      if (!isDeleting && charIdx === current.length) {
+        isDeleting = true;
+        speed = 1700;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        tIndex = (tIndex + 1) % titles.length;
+        speed = 400;
+      }
+      setTimeout(handleTyping, speed);
+    }
+    handleTyping();
+
+    // 3. Security Scanner Simulator
+    function runSecurityScan() {
+      const target = document.getElementById('scanTargetInput').value.trim() || 'target-server.com';
+      const consoleBox = document.getElementById('scannerConsole');
+      const progContainer = document.getElementById('scanProgressContainer');
+      const progBar = document.getElementById('scanProgressBar');
+      const progText = document.getElementById('scanPercentText');
+      const statusText = document.getElementById('scanStatusText');
+      const resSummary = document.getElementById('scanResultsSummary');
+      const scanBtn = document.getElementById('startScanBtn');
+
+      scanBtn.disabled = true;
+      scanBtn.classList.add('opacity-50');
+      progContainer.classList.remove('hidden');
+      resSummary.classList.add('hidden');
+      consoleBox.innerHTML = '';
+
+      const logs = [
+        `[INIT] Handshaking target ${target} over socket port 443...`,
+        `[SSL/TLS] Analyzing X.509 certificate chain (Issued by DigiCert)...`,
+        `[PORT SCAN] Scanning standard network ports: 21, 22, 80, 443, 3306, 8080...`,
+        `[INFO] Port 80 (HTTP) -> 301 Permanent Redirect to HTTPS detected.`,
+        `[INFO] Port 443 (HTTPS) -> TLSv1.3 negotiated with cipher TLS_AES_256_GCM_SHA384.`,
+        `[HTTP HEADERS] Checking Strict-Transport-Security (HSTS)... [OK - max-age=31536000]`,
+        `[HTTP HEADERS] Checking Content-Security-Policy (CSP)... [PRESENT]`,
+        `[HTTP HEADERS] Checking X-Frame-Options (Clickjacking guard)... [SAMEORIGIN]`,
+        `[XSS AUDIT] Form inputs fuzzing completed. No unescaped reflection found.`,
+        `[SQLi INJECT] Basic quotation escape testing passed without database error leaks.`,
+        `[COMPLETE] Full Security Assessment generated by Vipin Dadhich Cyber Suite.`
+      ];
+
+      let step = 0;
+      const totalSteps = logs.length;
+
+      const interval = setInterval(() => {
+        if (step < totalSteps) {
+          const logDiv = document.createElement('div');
+          if (logs[step].includes('[OK') || logs[step].includes('TLSv1.3')) {
+            logDiv.className = 'text-emerald-400 font-semibold';
+          } else if (logs[step].includes('[INFO]')) {
+            logDiv.className = 'text-cyan-300';
+          } else if (logs[step].includes('[COMPLETE]')) {
+            logDiv.className = 'text-cyan-400 font-bold bg-cyan-950/40 p-2 rounded mt-2';
+          } else {
+            logDiv.className = 'text-slate-300';
+          }
+          logDiv.textContent = logs[step];
+          consoleBox.appendChild(logDiv);
+          consoleBox.scrollTop = consoleBox.scrollHeight;
+
+          const pct = Math.round(((step + 1) / totalSteps) * 100);
+          progBar.style.width = pct + '%';
+          progText.textContent = pct + '%';
+          statusText.textContent = `Auditing ${target} (${step + 1}/${totalSteps})`;
+          step++;
+        } else {
+          clearInterval(interval);
+          scanBtn.disabled = false;
+          scanBtn.classList.remove('opacity-50');
+          resSummary.classList.remove('hidden');
+          showToastNotification('Audit Finished', `Security scan on ${target} concluded successfully!`);
+        }
+      }, 350);
+    }
+
+    // 4. SubtleCrypto SHA-256 Engine
+    async function calculateRealHash() {
+      const inputStr = document.getElementById('hashInput').value;
+      const outputElem = document.getElementById('hashOutput');
+      
+      if (!inputStr) {
+        outputElem.textContent = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 (Empty hash)';
+        return;
+      }
+
+      try {
+        const msgUint8 = new TextEncoder().encode(inputStr);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        outputElem.textContent = hashHex;
+      } catch (err) {
+        outputElem.textContent = 'Cryptographic API not accessible in this context.';
+      }
+    }
+    // Initialize default hash on load
+    calculateRealHash();
+
+    function copyHashResult() {
+      const hash = document.getElementById('hashOutput').textContent;
+      copyToClipboard(hash, 'SHA-256 Hash copied!');
+    }
+
+    // 5. Project Category Filtering
+    function filterVipinProjects(category) {
+      const tabs = document.querySelectorAll('.proj-tab');
+      tabs.forEach(t => {
+        t.classList.remove('bg-cyan-500', 'text-black');
+        t.classList.add('text-slate-400');
+      });
+      event.target.classList.add('bg-cyan-500', 'text-black');
+      event.target.classList.remove('text-slate-400');
+
+      const cards = document.querySelectorAll('.vipin-proj');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // 6. Copy to Clipboard Utility (iFrame and modern safe fallback)
+    function copyToClipboard(text, successMsg) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToastNotification("Copied", successMsg);
+      } catch (err) {
+        showToastNotification("Error", "Could not copy automatically.");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // 7. Toast Notification Handler
+    function showToastNotification(title, message) {
+      const toast = document.getElementById('toastBox');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMsg').textContent = message;
+
+      toast.classList.remove('translate-y-28', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-28', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    // 8. Contact Form Handler (Direct mailto trigger)
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value;
+      const contact = document.getElementById('senderContact').value;
+      const subject = document.getElementById('msgSubject').value || 'Portfolio Inquiry for Vipin Dadhich';
+      const body = document.getElementById('msgBody').value;
+
+      const mailtoLink = `mailto:vipindadhich0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + name + " (" + contact + ")\n\n" + body)}`;
+      
+      showToastNotification("Preparing Email", "Opening your email client to send message to Vipin...");
+      setTimeout(() => {
+        window.location.href = mailtoLink;
+      }, 600);
+    }
+
+    // 9. Download Resume Mock
+    function downloadVipinResume() {
+      const resumeContent = `=======================================================
+VIPIN DADHICH - CURRICULUM VITAE
+Email: vipindadhich0@gmail.com | Phone: +91 9509725051
+Location: Jaipur, Rajasthan, India
+LinkedIn: https://www.linkedin.com/in/vipin-dadhich
+=======================================================
+
+EDUCATION:
+- Bachelor of Computer Applications (BCA) - 3rd Year (Final Year)
+  Parishkar College of Global Excellence, Jaipur
+
+TECHNICAL SKILLS:
+- Web Frontend: HTML5, CSS3, JavaScript (ES6+), Responsive UI
+- Backend & Frameworks: Node.js, Express.js, PHP (Basics), REST APIs
+- Core Languages & Foundations: Python, Data Structures & Algorithms (DSA)
+- Security & Systems: Linux Basics, Cyber Security, Network Security, Protocols
+
+KEY HIGHLIGHTS:
+- Solid understanding of web request lifecycles, authentication, and secure servers.
+- Practical experience with socket programming, network scanning, and Linux environments.
+=======================================================`;
+
+      const blob = new Blob([resumeContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = "Vipin_Dadhich_Resume.txt";
+      a.click();
+      URL.revokeObjectURL(url);
+      showToastNotification("Resume Downloaded", "Vipin_Dadhich_Resume.txt downloaded successfully!");
+    }
+  </script>
+</body>
+</html>
